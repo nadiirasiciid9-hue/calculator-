@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>iPhone Calculator</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+margin:0;
+height:100vh;
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+
+.calculator{
+
+width:360px;
+background:#111;
+padding:25px;
+border-radius:35px;
+
+}
+
+
+
+#display{
+
+width:100%;
+height:130px;
+
+background:#111;
+color:white;
+
+border:none;
+
+font-size:55px;
+
+text-align:right;
+
+padding:20px;
+
+margin-bottom:20px;
+
+}
+
+
+
+.buttons{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:15px;
+
+}
+
+
+
+button{
+
+height:75px;
+
+border-radius:50%;
+
+border:none;
+
+background:#222;
+
+color:white;
+
+font-size:28px;
+
+}
+
+
+
+.operator{
+
+color:#20e878;
+
+}
+
+
+
+.clear{
+
+color:#ff5555;
+
+}
+
+
+
+.equal{
+
+background:#20e878;
+
+color:white;
+
+}
+
+
+
+.zero{
+
+grid-column:span 2;
+
+border-radius:40px;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="calculator">
+
+
+<input id="display" readonly>
+
+
+<div class="buttons">
+
+
+<button class="clear" onclick="clearDisplay()">C</button>
+<button class="operator" onclick="add('%')">%</button>
+<button class="operator" onclick="back()">⌫</button>
+<button class="operator" onclick="add('/')">÷</button>
+
+
+<button onclick="add('7')">7</button>
+<button onclick="add('8')">8</button>
+<button onclick="add('9')">9</button>
+<button class="operator" onclick="add('*')">×</button>
+
+
+<button onclick="add('4')">4</button>
+<button onclick="add('5')">5</button>
+<button onclick="add('6')">6</button>
+<button class="operator" onclick="add('-')">−</button>
+
+
+<button onclick="add('1')">1</button>
+<button onclick="add('2')">2</button>
+<button onclick="add('3')">3</button>
+<button class="operator" onclick="add('+')">+</button>
+
+
+<button onclick="add('.')">.</button>
+<button class="zero" onclick="add('0')">0</button>
+<button class="equal" onclick="calculate()">=</button>
+
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+let display=document.getElementById("display");
+
+
+function add(value){
+
+display.value += value;
+
+}
+
+
+
+function clearDisplay(){
+
+display.value="";
+
+}
+
+
+
+function back(){
+
+display.value =
+display.value.slice(0,-1);
+
+}
+
+
+
+function calculate(){
+
+try{
+
+display.value =
+eval(display.value);
+
+}
+
+catch{
+
+display.value="Error";
+
+}
+
+}
+
+
+</script>
+
+
+</body>
+</html>
